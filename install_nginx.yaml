@@ -1,0 +1,19 @@
+---
+
+- hosts: redhatservers
+  become: true 
+  tasks:   
+  
+  - name: install the latest version of apache 
+    yum:
+      name:
+        - httpd
+        - nginx
+        - php
+      state: latest
+
+  - name: disable httpd
+    service:
+      name: httpd
+      state: stopped 
+      enabled: no 
