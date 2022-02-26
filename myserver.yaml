@@ -9,14 +9,17 @@
       name:
         - mailx
         - httpd
-        - php  
+        - php
       state: latest
     when: ansible_distribution == "RedHat"
   - name: Stop service httpd, if started
     service:
       name: httpd
-      state: started 
+      state: started
     when: ansible_distribution == "RedHat"
 
- 
-
+  - name: install latest version of apache 
+    apt:
+      name: apache2
+      state: present
+    when: ansible_distribution == "Ubuntu"
