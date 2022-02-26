@@ -1,0 +1,21 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install lastest version of mailx
+    yum:
+      name:
+        - mailx
+        - httpd
+        - php  
+      state: latest
+
+   - name: stop service httpd if started
+     service:
+       name: httpd
+       state: stopped
+       enabled: no
+
+
