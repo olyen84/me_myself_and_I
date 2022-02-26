@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: redhatservers
   become: true
   tasks:
 
@@ -18,4 +18,5 @@
        state: stopped
        enabled: no
 
+ 
 
