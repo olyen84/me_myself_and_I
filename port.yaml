@@ -1,0 +1,21 @@
+---
+
+- hosts: redhatservers
+  become: true
+  tasks: 
+
+  - name:
+    firewalld:
+      port: 80/tcp
+      permanent: yes
+      state: enabled
+      immediate: true
+
+  - name: restart httpd
+    service:
+      name: httpd
+      state: restarted
+  - name: NetworkManager
+    service:
+      name: NetworkManager
+      state: reloaded 

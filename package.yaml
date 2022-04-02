@@ -1,0 +1,16 @@
+---
+- name: Install Package
+  become: true
+  hosts: redhatservers
+
+  tasks:
+    - package:
+        name: coreutils
+        state: present
+    - package:
+        name: ansible
+        state: absent
+    - package: 
+        name: cowsay
+        state: present 
+
