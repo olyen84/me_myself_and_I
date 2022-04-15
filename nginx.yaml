@@ -1,0 +1,24 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+  become: true
+
+  - name: Insure a list of packages installed
+    yum:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - nginx
+      - php
+      - mailx
+      - httpd
+      state: latest
+
+   - name: Make sure apache is up and running
+     service:
+       name: httpd
+       state: started
+
+ 
